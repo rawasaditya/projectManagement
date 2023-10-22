@@ -6,7 +6,7 @@ const AuthContainer = () => {
   const [isLogin, setLogin] = useState(true);
   return (
     <div className="flex items-center justify-center w-full h-screen">
-      <div className="w-full p-2 border-2 border-white rounded-md shadow-2xl md:w-1/2 h-2/3 lg:flex">
+      <div className="w-1/2 p-2 border-2 border-white rounded-md shadow-2xl h-2/3 lg:flex">
         <div className="items-center justify-center hidden h-full px-4 rounded-md lg:flex bg-secondary">
           <img src={team} />
         </div>
