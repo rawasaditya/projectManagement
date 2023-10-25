@@ -2,10 +2,14 @@ import { useState } from "react";
 import axios from "../../utils/axiosConfig.js";
 import { Button } from "rawasui/dist/Buttons";
 import { TextField } from "rawasui/dist/TextField";
+import { useSelector, useDispatch } from "react-redux";
+import { loggedIn } from "../../../store/slice/authSlice.js";
 const Login = () => {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const auth = useSelector((state) => state.authReducer);
+  const dispatch = useDispatch();
   const login = () => {
     setLoading(true);
     axios
@@ -14,9 +18,9 @@ const Login = () => {
         password,
       })
       .then((response) => {
-        console.log(response.data);
         localStorage.setItem("token", response?.data?.token);
         setLoading(false);
+        dispatch(loggedIn(true));
       })
       .catch((err) => {
         console.log(err);
