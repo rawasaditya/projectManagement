@@ -8,7 +8,6 @@ const Login = () => {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const auth = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
   const login = () => {
     setLoading(true);
